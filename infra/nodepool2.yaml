@@ -6,21 +6,25 @@ spec:
   forProvider:
     autoscaling:
       autoprovisioned: false
-      enabled: false
-    clusterSelector:
-      matchLabels:
-        service: gke
-        creation: crossplane
+      enabled: true
+      maxNodeCount: 4
+      minNodeCount: 3
+    clusterRef:
+      name: crossplane-cluster
     config:
       machineType: e2-medium #change if required
       diskSizeGb: 100 #change if required
       diskType: pd-standard #change if required
-      imageType: COS_CONTAINERD 
+      imageType: COS_CONTAINERD
       labels:
-        owner: crossplane
-    initialNodeCount: 2 #change if required
-    maxPodsConstraint:
-        maxPodsPerNode: 110
+      oauthScopes:
+      - "https://www.googleapis.com/auth/devstorage.read_only"
+      - "https://www.googleapis.com/auth/logging.write"
+      - "https://www.googleapis.com/auth/monitoring"
+      - "https://www.googleapis.com/auth/servicecontrol"
+      - "https://www.googleapis.com/auth/service.management.readonly"
+      - "https://www.googleapis.com/auth/trace.append"
+    initialNodeCount: 3
     locations:
       - "us-central1-c" #change if required
   providerConfigRef:
