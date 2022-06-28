@@ -10,7 +10,7 @@ spec:
       maxNodeCount: 4
       minNodeCount: 3
     clusterRef:
-      name: crossplane-cluster
+      name: crossplane-cluster2
     config:
       machineType: e2-medium #change if required
       diskSizeGb: 100 #change if required
