@@ -6,7 +6,7 @@ metadata:
 spec:
   forProvider:
     bucketRef:
-      name: example
+      name: argocd-sumeet-bucket
     # member: serviceAccount:<my-sa-email>
     serviceAccountMemberRef:
       name: arg-bucket-sa
