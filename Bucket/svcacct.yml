@@ -1,0 +1,11 @@
+apiVersion: iam.gcp.crossplane.io/v1alpha1
+kind: ServiceAccount
+metadata:
+  name: arg-bucket-sa
+spec:
+  forProvider:
+    displayName: "argo bucket service account"
+    description: "argo svcacct"
+  deletionPolicy: Delete
+  providerConfigRef:
+    name: crossplane-provider-gcp
