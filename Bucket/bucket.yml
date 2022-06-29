@@ -12,5 +12,5 @@ spec:
   location: US
   storageClass: MULTI_REGIONAL
   providerConfigRef:
-    name: gcp-provider
+    name: crossplane-provider-gcp
   deletionPolicy: Delete
