@@ -1,0 +1,22 @@
+apiVersion: storage.gcp.crossplane.io/v1alpha1
+kind: BucketPolicy
+metadata:
+  name: crossplane-example-bucket-policy
+spec:
+  forProvider:
+    bucketRef:
+      name: example-sumeet-crossplane
+    policy:
+      bindings:
+        - role: roles/storage.legacyBucketOwner
+          members:
+            - "projectEditor:argo-crossplane-gke"
+            - "projectOwner:argo-crossplane-gke"
+        - role: roles/storage.legacyBucketReader
+          members:
+            - "projectViewer:argo-crossplane-gke"
+        - role: roles/storage.objectAdmin
+          serviceAccountMemberRefs:
+            - name: bucket-test-sa
+  providerConfigRef:
+    name: crossplane-provider-gcp
